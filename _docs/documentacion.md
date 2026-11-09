@@ -3,8 +3,6 @@
 **Autor:** Manuel Jesús Jiménez Romero — 2º DAW
 **Repositorio:** `El-Guardi-n-de-la-Interfaz2`
 
-> Esta carpeta `_docs/` no se publica en GitHub Pages (Jekyll ignora las
-> carpetas que empiezan por `_` y además está excluida en `_config.yml`).
 
 ## 1. Archivos
 
@@ -41,7 +39,7 @@ más prioridad que la clase y taparía el fondo del tema.
 |---|---|---|
 | `nombre` | Nombre de usuario | 7 días |
 | `color` | Color de fondo | 7 días |
-| `tema` | `tema-claro` o `tema-oscuro` | De sesión (sin `expires`) |
+| `tema` | `tema-claro` o `tema-oscuro` |
 
 Los 7 días se calculan con el objeto `Date`:
 

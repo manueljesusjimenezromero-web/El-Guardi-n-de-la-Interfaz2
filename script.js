@@ -9,7 +9,7 @@ function log(mensaje, dato) {
 }
 
 
-
+/** Se llaman a los objetos del DOM */
 const contenedorBienvenida = document.getElementById("contenedor-bienvenida");
 const inputNombre = document.getElementById("nombre");
 const inputColor  = document.getElementById("color");
@@ -20,9 +20,9 @@ const aviso       = document.getElementById("aviso");
 
 
 /* configuración  */
-const DIAS_CADUCIDAD = 7;
-const COLOR_POR_DEFECTO = "#ffffff";
-const FECHA_PASADA = "Thu, 01 Jan 1970 00:00:00 UTC";
+const diasCaducidad = 7;
+const colorPorDefecto = "#ffffff";
+const fechaPasada = "Thu, 01 Jan 1970 00:00:00 UTC";
 
 
 /* coockies */
@@ -36,16 +36,15 @@ const FECHA_PASADA = "Thu, 01 Jan 1970 00:00:00 UTC";
  * @param {number} dias   - días que debe durar
  */
 function setCookie(nombre, valor, dias) {
-  const fecha = new Date();                      // fecha y hora actuales
+  const fecha = new Date(); // fecha y hora actuales
 
-  // setDate() admite valores mayores que 31: Date ajusta mes y año solo
+  // setDate() admite valores mayores que 31.
   fecha.setDate(fecha.getDate() + dias);
 
   // toUTCString() devuelve el formato exacto que exige el atributo expires
   const caducidad = fecha.toUTCString();
 
-  document.cookie = nombre + "=" + encodeURIComponent(valor) +
-                    "; expires=" + caducidad + "; path=/";
+  document.cookie = nombre + "=" + encodeURIComponent(valor) + "; expires=" + caducidad + "; path=/";
 
   log("Cookie persistente creada:", nombre + " -> caduca " + caducidad);
 }
@@ -83,7 +82,7 @@ function getCookie(nombre) {
  * El path debe ser el mismo con el que se creó.
  */
 function borrarCookie(nombre) {
-  document.cookie = nombre + "=; expires=" + FECHA_PASADA + "; path=/";
+  document.cookie = nombre + "=; expires=" + fechaPasada + "; path=/";
 
   log("Cookie borrada:", nombre);
 }
@@ -177,8 +176,8 @@ btnGuardar.addEventListener("click", function () {
   }
 
   // Nombre y color: cookies persistentes de 7 días
-  setCookie("nombre", nombre, DIAS_CADUCIDAD);
-  setCookie("color", inputColor.value, DIAS_CADUCIDAD);
+  setCookie("nombre", nombre, diasCaducidad);
+  setCookie("color", inputColor.value, diasCaducidad);
 
   // Tema: cookie de sesión (sin expires)
   setCookieSesion("tema", selectTema.value);
@@ -208,19 +207,19 @@ btnReset.addEventListener("click", function () {
   document.body.classList.remove("tema-claro");    
   document.body.classList.remove("tema-oscuro");
 
-  // 3. Eliminar del DOM el bloque generado en la Parte 1
+  // 3. Eliminar del DOM el bloque generado.
   eliminarBloqueBienvenida();
 
   // Dejamos el formulario como al principio
   inputNombre.value = "";
-  inputColor.value = COLOR_POR_DEFECTO;
+  inputColor.value = colorPorDefecto;
   selectTema.selectedIndex = 0;
 
   mostrarAviso("Interfaz restablecida y cookies eliminadas.");
 });
 
 
-/* RECUPERACIÓN AL CARGAR LA PÁGINA  */
+
 
 function cargarPreferencias() {
 
