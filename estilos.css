@@ -1,0 +1,84 @@
+/* El Guardián de la Interfaz - estilos.css
+   Los temas son clases predefinidas (.tema-claro / .tema-oscuro);
+   el JavaScript solo las activa o desactiva con classList. */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 2rem 1rem;
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #eef1f7;
+    color: #1d2433;
+}
+
+.contenedor { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+
+.subtitulo { opacity: .75; font-size: .95rem; }
+
+/* Tarjetas y bloque de bienvenida generado por JavaScript */
+.tarjeta,
+#bloque-bienvenida {
+    background-color: #fff;
+    border: 1px solid #d7dde8;
+    border-left: 4px solid #3457d5;
+    border-radius: 10px;
+    padding: 1.25rem;
+}
+
+/* Formulario */
+fieldset { border: none; margin: 0; padding: 0; }
+legend { font-weight: 600; }
+.campo { display: flex; flex-direction: column; margin-bottom: 1rem; }
+.campo label { font-size: .85rem; font-weight: 600; opacity: .7; }
+
+input, select {
+    padding: .5rem;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: 1px solid #9aa6bb;
+    border-radius: 6px;
+}
+
+input[type="color"] { height: 42px; padding: 2px; cursor: pointer; }
+
+/* Botones y mensajes */
+.acciones { display: flex; gap: .75rem; }
+
+.btn { font: inherit; font-weight: 600; padding: .6rem 1.2rem; border: 1px solid currentColor; border-radius: 6px; cursor: pointer; }
+
+.btn-primario { background-color: #3457d5; color: #fff; }
+.btn-secundario { background-color: transparent; color: inherit; }
+
+.mensaje { font-weight: 600; min-height: 1.5rem; }
+.mensaje.exito { color: #0f7b4f; }
+.mensaje.aviso { color: #a4560a; }
+
+#volcado-cookies {
+    margin: 0;
+    padding: .75rem;
+    font-family: Consolas, monospace;
+    font-size: .85rem;
+    white-space: pre-wrap;
+    background-color: rgba(0, 0, 0, .06);
+    border-radius: 6px;
+}
+
+/* TEMAS VISUALES (clases que activa el JavaScript) */
+body.tema-claro { background-color: #eef1f7; color: #1d2433; }
+body.tema-oscuro { background-color: #12161f; color: #e7ecf5; }
+
+body.tema-oscuro .tarjeta,
+body.tema-oscuro #bloque-bienvenida {
+    background-color: #1b2130;
+    border-color: #2d364a;
+    border-left-color: #6f8dff;
+}
+
+body.tema-oscuro option { background-color: #1b2130; }
+body.tema-oscuro .btn-primario { background-color: #5a7bff; color: #0c1017; }
+body.tema-oscuro #volcado-cookies { background-color: rgba(255, 255, 255, .08); }
+body.tema-oscuro .mensaje.exito { color: #5fd3a0; }
+body.tema-oscuro .mensaje.aviso { color: #f0b86c; }
