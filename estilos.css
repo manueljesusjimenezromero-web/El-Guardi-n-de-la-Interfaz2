@@ -1,84 +1,196 @@
-/* El Guardián de la Interfaz - estilos.css
-   Los temas son clases predefinidas (.tema-claro / .tema-oscuro);
-   el JavaScript solo las activa o desactiva con classList. */
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 
 body {
-    margin: 0;
-    padding: 2rem 1rem;
-    font-family: "Segoe UI", system-ui, Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #eef1f7;
-    color: #1d2433;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+  padding: 2.5rem 1rem;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.contenedor { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
-
-.subtitulo { opacity: .75; font-size: .95rem; }
-
-/* Tarjetas y bloque de bienvenida generado por JavaScript */
-.tarjeta,
-#bloque-bienvenida {
-    background-color: #fff;
-    border: 1px solid #d7dde8;
-    border-left: 4px solid #3457d5;
-    border-radius: 10px;
-    padding: 1.25rem;
+.contenedor {
+  max-width: 520px;
+  margin: 0 auto;
 }
 
-/* Formulario */
-fieldset { border: none; margin: 0; padding: 0; }
-legend { font-weight: 600; }
-.campo { display: flex; flex-direction: column; margin-bottom: 1rem; }
-.campo label { font-size: .85rem; font-weight: 600; opacity: .7; }
 
-input, select {
-    padding: .5rem;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    border: 1px solid #9aa6bb;
-    border-radius: 6px;
+.cabecera {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-input[type="color"] { height: 42px; padding: 2px; cursor: pointer; }
-
-/* Botones y mensajes */
-.acciones { display: flex; gap: .75rem; }
-
-.btn { font: inherit; font-weight: 600; padding: .6rem 1.2rem; border: 1px solid currentColor; border-radius: 6px; cursor: pointer; }
-
-.btn-primario { background-color: #3457d5; color: #fff; }
-.btn-secundario { background-color: transparent; color: inherit; }
-
-.mensaje { font-weight: 600; min-height: 1.5rem; }
-.mensaje.exito { color: #0f7b4f; }
-.mensaje.aviso { color: #a4560a; }
-
-#volcado-cookies {
-    margin: 0;
-    padding: .75rem;
-    font-family: Consolas, monospace;
-    font-size: .85rem;
-    white-space: pre-wrap;
-    background-color: rgba(0, 0, 0, .06);
-    border-radius: 6px;
+.cabecera h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
-/* TEMAS VISUALES (clases que activa el JavaScript) */
-body.tema-claro { background-color: #eef1f7; color: #1d2433; }
-body.tema-oscuro { background-color: #12161f; color: #e7ecf5; }
-
-body.tema-oscuro .tarjeta,
-body.tema-oscuro #bloque-bienvenida {
-    background-color: #1b2130;
-    border-color: #2d364a;
-    border-left-color: #6f8dff;
+.subtitulo {
+  font-size: 0.9rem;
 }
 
-body.tema-oscuro option { background-color: #1b2130; }
-body.tema-oscuro .btn-primario { background-color: #5a7bff; color: #0c1017; }
-body.tema-oscuro #volcado-cookies { background-color: rgba(255, 255, 255, .08); }
-body.tema-oscuro .mensaje.exito { color: #5fd3a0; }
-body.tema-oscuro .mensaje.aviso { color: #f0b86c; }
+
+.tarjeta {
+  background-color: #fafafa;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+
+
+.campo {
+  margin-bottom: 1.2rem;
+}
+
+.campo label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 0.55rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #222222;
+}
+
+input[type="color"] {
+  width: 60px;
+  height: 38px;
+  padding: 2px;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+select {
+  cursor: pointer;
+}
+
+
+/* ---------- Botones ---------- */
+.botones {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.65rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn-primario {
+  background-color: #2f6fd0;
+  color: #ffffff;
+}
+
+.btn-secundario {
+  background-color: transparent;
+  border-color: #aaaaaa;
+  color: inherit;
+}
+
+
+
+#aviso {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  min-height: 1.4rem;
+}
+
+
+
+#bloque-saludo {
+  background-color: #fafafa;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #2f6fd0;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+#bloque-saludo h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+}
+
+#bloque-saludo p {
+  font-size: 0.92rem;
+}
+
+
+.tema-claro {
+  background-color: #eef1f5;
+  color: #1c2230;
+}
+
+.tema-claro .tarjeta,
+.tema-claro #bloque-saludo {
+  background-color: #ffffff;
+  border-color: #d8dde6;
+}
+
+.tema-claro #bloque-saludo {
+  border-left-color: #2f6fd0;
+}
+
+.tema-oscuro {
+  background-color: #1a1d29;
+  color: #e9ecf4;
+}
+
+.tema-oscuro .tarjeta,
+.tema-oscuro #bloque-saludo {
+  background-color: #252a3a;
+  border-color: #3a4256;
+}
+
+.tema-oscuro #bloque-saludo {
+  border-left-color: #6f9bff;
+}
+
+.tema-oscuro #bloque-saludo h2 {
+  color: #8db0ff;
+}
+
+.tema-oscuro input[type="text"],
+.tema-oscuro select,
+.tema-oscuro input[type="color"] {
+  background-color: #1a1d29;
+  color: #e9ecf4;
+  border-color: #3a4256;
+}
+
+.tema-oscuro .btn-secundario {
+  border-color: #3a4256;
+}
+
+

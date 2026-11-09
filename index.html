@@ -18,11 +18,45 @@
             </p>
         </header>
 
-       
-        <div id="contenedor-bienvenida">
-            
-        </div>
-  
+      
+        <div id="contenedor-bienvenida"></div>
+
+     
+        <form id="formulario" class="tarjeta">
+
+            <div class="campo">
+                <label for="nombre">Nombre de usuario</label>
+                <input type="text" id="nombre" placeholder="Escribe tu nombre">
+            </div>
+
+            <div class="campo">
+                <label for="color">Color de fondo</label>
+                <input type="color" id="color" value="#ffffff">
+            </div>
+
+            <div class="campo">
+                <label for="tema">Tema visual</label>
+                <select id="tema">
+                    <option value="tema-claro">Modo Claro</option>
+                    <option value="tema-oscuro">Modo Oscuro</option>
+                </select>
+            </div>
+
+            <div class="botones">
+                <button type="button" id="btnGuardar" class="btn btn-primario">
+                    Guardar Preferencias
+                </button>
+                <button type="button" id="btnReset" class="btn btn-secundario">
+                    Restablecer Interfaz
+                </button>
+            </div>
+
+            <p id="aviso"></p>
+
+        </form>
+
+    </main>
+
     <script src="script.js"></script>
 </body>
 
