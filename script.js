@@ -1,27 +1,7 @@
-/* ==========================================================================
-   El Guardián de la Interfaz - script.js
-   --------------------------------------------------------------------------
-   Autor: Manuel Jesús Jiménez Romero
-   Objetivo: personalizar la interfaz (nombre, color de fondo y tema visual)
-   y recordar la configuración usando cookies nativas.
-
-   Indice:
-     0. Constantes y referencias al DOM
-     1. Utilidades de cookies (crear / leer / borrar)
-     2. Generación dinámica del DOM (Parte 1)
-     3. Modificación inmediata del aspecto (Parte 2)
-     4. Persistencia: guardar y recuperar preferencias (Parte 3)
-     5. Restablecer interfaz (Parte 4)
-     6. Arranque y asignación de eventos
-   ========================================================================== */
 
 "use strict";
 
-/* ==========================================================================
-   0. CONSTANTES Y REFERENCIAS AL DOM
-   ========================================================================== */
 
-/* Nombres de las tres cookies que maneja la aplicación */
 const COOKIE_NOMBRE = "guardian_nombre";
 const COOKIE_COLOR = "guardian_color";
 const COOKIE_TEMA = "guardian_tema";   // cookie de sesión
@@ -42,10 +22,6 @@ const btnGuardar = document.getElementById("btn-guardar");
 const btnRestablecer = document.getElementById("btn-restablecer");
 const mensajeEstado = document.getElementById("mensaje-estado");
 const volcadoCookies = document.getElementById("volcado-cookies");
-
-/* ==========================================================================
-   1. UTILIDADES DE COOKIES
-   ========================================================================== */
 
 /**
  * Crea o actualiza una cookie.
@@ -121,11 +97,6 @@ function volcarCookies() {
         ? lineas.join("\n")
         : "(ninguna)";
 }
-
-/* ==========================================================================
-   2. GENERACIÓN DINÁMICA DEL DOM (Parte 1)
-   ========================================================================== */
-
 /**
  * Crea el bloque de bienvenida (h2 + p) con createElement() y
  * createTextNode(), y lo inyecta en #contenedor-bienvenida con
@@ -167,9 +138,6 @@ function eliminarBloqueBienvenida() {
     }
 }
 
-/* ==========================================================================
-   3. MODIFICACIÓN INMEDIATA DEL ASPECTO (Parte 2)
-   ========================================================================== */
 
 /**
  * Aplica el color de fondo al documento mediante estilo en línea.
@@ -207,9 +175,6 @@ function mostrarMensaje(texto, tipo) {
     mensajeEstado.className = "mensaje " + (tipo || "");
 }
 
-/* ==========================================================================
-   4. PERSISTENCIA: GUARDAR Y RECUPERAR (Parte 3)
-   ========================================================================== */
 
 /**
  * Guarda las tres preferencias en tres cookies distintas:
@@ -276,10 +241,6 @@ function recuperarPreferencias() {
     }
 }
 
-/* ==========================================================================
-   5. RESTABLECER INTERFAZ (Parte 4)
-   ========================================================================== */
-
 /**
  * Devuelve la aplicación a su estado inicial:
  *   1. Borra las tres cookies (Expires en el pasado).
@@ -309,10 +270,6 @@ function restablecerInterfaz() {
     volcarCookies();
     mostrarMensaje("Interfaz restablecida y cookies eliminadas.", "aviso");
 }
-
-/* ==========================================================================
-   6. ARRANQUE Y ASIGNACIÓN DE EVENTOS
-   ========================================================================== */
 
 /* Cambio de color: se aplica al instante mientras se mueve el selector */
 inputColor.addEventListener("input", function () {
