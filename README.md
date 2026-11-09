@@ -29,12 +29,6 @@ Práctica de *Desarrollo Web en Entorno Cliente* (2º DAW).
   `expires` en el pasado, limpia el estilo en línea y las clases, y elimina
   el bloque de bienvenida con `removeChild()`.
 
-## Despliegue
-
-GitHub Pages desde la rama `main`, carpeta raíz:
-
-https://manueljesusjimenezromero-web.github.io/El-Guardi-n-de-la-Interfaz2/
-
 ## Documentación
 
 La documentación técnica completa está en

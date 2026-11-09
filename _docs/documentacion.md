@@ -77,4 +77,4 @@ El botón pide confirmación con `confirm()` y después:
 ## 7. Despliegue
 
 GitHub Pages, rama `main`, carpeta raíz:
-`https://manueljesusjimenezromero-web.github.io/El-Guardi-n-de-la-Interfaz2/`
+[`https://manueljesusjimenezromero-web.github.io/El-Guardi-n-de-la-Interfaz2/`](https://manueljesusjimenezromero-web.github.io/El-Guardi-n-de-la-Interfaz2/)
