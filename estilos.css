@@ -1,0 +1,270 @@
+/* ==========================================================================
+   El Guardián de la Interfaz - estilos.css
+   --------------------------------------------------------------------------
+   Los temas visuales se definen AQUI como clases predefinidas
+   (.tema-claro y .tema-oscuro). El JavaScript solo las activa o desactiva
+   con classList.add() / classList.remove(); nunca escribe estos estilos
+   en linea.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Aspecto por defecto (sin ninguna clase de tema en el body)
+   -------------------------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 2rem 1rem;
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    line-height: 1.6;
+
+    /* Colores por defecto: se sobrescriben con las clases de tema          */
+    background-color: #eef1f7;
+    color: #1d2433;
+
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.contenedor {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cabecera h1 {
+    margin: 0 0 .25rem;
+    font-size: 1.9rem;
+    letter-spacing: -.02em;
+}
+
+.subtitulo {
+    margin: 0;
+    opacity: .75;
+    font-size: .95rem;
+}
+
+/* Tarjetas: formulario, panel de cookies y bloque de bienvenida */
+.tarjeta,
+#bloque-bienvenida {
+    background-color: #ffffff;
+    border: 1px solid #d7dde8;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 1px 3px rgba(16, 24, 40, .06);
+    transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+}
+
+/* Bloque generado dinámicamente en la Parte 1 */
+#bloque-bienvenida {
+    border-left: 4px solid #3457d5;
+}
+
+#bloque-bienvenida h2 {
+    margin: 0 0 .35rem;
+    font-size: 1.3rem;
+}
+
+#bloque-bienvenida p {
+    margin: 0;
+    opacity: .8;
+    font-size: .95rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. Formulario
+   -------------------------------------------------------------------------- */
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0 0 .75rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    font-size: .85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    opacity: .7;
+}
+
+input[type="text"],
+select {
+    padding: .6rem .7rem;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: 1px solid #c3ccdb;
+    border-radius: 8px;
+}
+
+input[type="text"]:focus,
+select:focus,
+.btn:focus-visible {
+    outline: 2px solid #3457d5;
+    outline-offset: 2px;
+}
+
+input[type="color"] {
+    width: 100%;
+    height: 44px;
+    padding: 2px;
+    border: 1px solid #c3ccdb;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   3. Botones
+   -------------------------------------------------------------------------- */
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 1.25rem;
+}
+
+.btn {
+    font: inherit;
+    font-weight: 600;
+    padding: .65rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform .1s ease, filter .2s ease;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:hover {
+    filter: brightness(1.08);
+}
+
+.btn-primario {
+    background-color: #3457d5;
+    color: #ffffff;
+}
+
+.btn-secundario {
+    background-color: transparent;
+    border-color: currentColor;
+    color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   4. Mensajes y panel de cookies
+   -------------------------------------------------------------------------- */
+
+.mensaje {
+    margin: 0;
+    min-height: 1.5rem;
+    font-size: .95rem;
+    font-weight: 600;
+}
+
+.mensaje.exito {
+    color: #0f7b4f;
+}
+
+.mensaje.aviso {
+    color: #a4560a;
+}
+
+.panel-cookies h3 {
+    margin: 0 0 .5rem;
+    font-size: 1rem;
+}
+
+#volcado-cookies {
+    margin: 0;
+    padding: .75rem;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: .85rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+    background-color: rgba(16, 24, 40, .05);
+    border-radius: 8px;
+}
+
+/* ==========================================================================
+   5. TEMAS VISUALES (clases que activa el JavaScript)
+   ========================================================================== */
+
+/* --- Modo Claro --- */
+body.tema-claro {
+    background-color: #eef1f7;
+    color: #1d2433;
+}
+
+body.tema-claro .tarjeta,
+body.tema-claro #bloque-bienvenida {
+    background-color: #ffffff;
+    border-color: #d7dde8;
+}
+
+/* --- Modo Oscuro --- */
+body.tema-oscuro {
+    background-color: #12161f;
+    color: #e7ecf5;
+}
+
+body.tema-oscuro .tarjeta,
+body.tema-oscuro #bloque-bienvenida {
+    background-color: #1b2130;
+    border-color: #2d364a;
+    box-shadow: none;
+}
+
+body.tema-oscuro #bloque-bienvenida {
+    border-left-color: #6f8dff;
+}
+
+body.tema-oscuro input[type="text"],
+body.tema-oscuro select,
+body.tema-oscuro input[type="color"] {
+    border-color: #3a455c;
+}
+
+body.tema-oscuro select option {
+    background-color: #1b2130;
+    color: #e7ecf5;
+}
+
+body.tema-oscuro .btn-primario {
+    background-color: #5a7bff;
+    color: #0c1017;
+}
+
+body.tema-oscuro #volcado-cookies {
+    background-color: rgba(255, 255, 255, .06);
+}
+
+body.tema-oscuro .mensaje.exito {
+    color: #5fd3a0;
+}
+
+body.tema-oscuro .mensaje.aviso {
+    color: #f0b86c;
+}

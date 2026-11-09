@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>El Guardián de la Interfaz</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
+    <main class="contenedor">
+
+        <header class="cabecera">
+            <h1>El Guardián de la Interfaz</h1>
+            <p class="subtitulo">
+                Personaliza el aspecto de la página. Tus preferencias se recuerdan con cookies nativas.
+            </p>
+        </header>
+
+        <!-- PARTE 1: contenedor vacío. El bloque de bienvenida (h2 + p) se
+             genera dinámicamente desde script.js con createElement(),
+             createTextNode() y appendChild(). Nunca con document.write(). -->
+        <div id="contenedor-bienvenida"></div>
+
+        <!-- PARTE 2: formulario con los tres controles de personalización -->
+        <form id="formulario-preferencias" class="tarjeta">
+            <fieldset>
+                <legend>Configuración de la interfaz</legend>
+
+                <div class="campo">
+                    <label for="nombre-usuario">Nombre de usuario</label>
+                    <input type="text" id="nombre-usuario" name="nombre-usuario" placeholder="Escribe tu nombre"
+                        autocomplete="off" maxlength="30">
+                </div>
+
+                <div class="campo">
+                    <label for="color-fondo">Color de fondo de la página</label>
+                    <input type="color" id="color-fondo" name="color-fondo" value="#eef1f7">
+                </div>
+
+                <div class="campo">
+                    <label for="tema-visual">Tema visual</label>
+                    <select id="tema-visual" name="tema-visual">
+                        <option value="tema-claro">Modo Claro</option>
+                        <option value="tema-oscuro">Modo Oscuro</option>
+                    </select>
+                </div>
+
+                <!-- PARTE 3 y PARTE 4: guardado en cookies y restablecimiento -->
+                <div class="acciones">
+                    <button type="button" id="btn-guardar" class="btn btn-primario">
+                        Guardar Preferencias
+                    </button>
+                    <button type="button" id="btn-restablecer" class="btn btn-secundario">
+                        Restablecer Interfaz
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+
+        <!-- Zona de avisos para el usuario (no usamos alert) -->
+        <p id="mensaje-estado" class="mensaje" role="status" aria-live="polite"></p>
+
+        <section class="tarjeta panel-cookies">
+            <h3>Cookies activas en este navegador</h3>
+            <pre id="volcado-cookies">(ninguna)</pre>
+        </section>
+
+    </main>
+
+    <!-- El script se carga al final del body para que el DOM ya exista -->
     <script src="script.js"></script>
-    <div id="contenedor-bienvenida"></div>
 </body>
+
 </html>

@@ -1,0 +1,12 @@
+# Configuración de GitHub Pages
+#
+# La carpeta _docs/ queda FUERA del sitio publicado por dos motivos:
+#   1. Jekyll ignora por defecto cualquier carpeta que empiece por "_".
+#   2. Además se excluye explícitamente aquí abajo.
+# Así cumplimos el entregable: "documentación en una carpeta del repo
+# no incluida en github pages".
+
+exclude:
+  - _docs
+  - README.md
+  - .gitignore
