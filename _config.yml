@@ -1,5 +1,0 @@
-
-exclude:
-  - _docs
-  - README.md
-  - .gitignore
